@@ -6,10 +6,12 @@ const SAMPLERATE: u32 = 44100;
 
 //TODO: implement multichannel functionality so that itteration becomes possible (generating multiple files, etc)
 #[derive(Debug)]
-struct Buffer {
+pub struct Buffer {
     length: u32,
     data: Vec<f32>
 } 
+//TODO: make functions return a String, but make arguments &str. this is because you then wouldn't have to specify the lifetime.
+//a &str is a reference, so returning a &str from a function means you're returning a reference to a value that doesn't exist outside the function's scope. 
 
 fn main(){
     let spec = hound::WavSpec {
